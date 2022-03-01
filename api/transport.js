@@ -27,7 +27,7 @@ const Transport = {
     // auth
     login: (data) =>
       axios({
-        url: baseUrl + "auth/admin-login",
+        url: "https://ik491x7anc.execute-api.us-east-2.amazonaws.com/dev/auth/admin-login",
         method: "POST",
         data: data,
       }),
