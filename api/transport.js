@@ -1,7 +1,7 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
 
-const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+const baseUrl = "https://ik491x7anc.execute-api.us-east-2.amazonaws.com/dev/";
 axiosRetry(axios, { retries: 10 });
 
 const Transport = {
