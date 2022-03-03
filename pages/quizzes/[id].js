@@ -174,9 +174,14 @@ export default function QuizzesDetails(props) {
   const handleUpdateQuizzesSet = () => {
     setOperationDone(true);
     setIsOperationLoading(true);
+    console.log("quizzesSet", quizzesSet);
     Transport.HTTP.updateQuizzesSet(
       quizzesSet.id,
-      quizzesSet,
+      {
+        title : quizzesSet.title,
+        desc : quizzesSet.desc,
+        premium : quizzesSet.premium
+      },
       sessionStorage.getItem("token")
     )
       .then((res) => {
