@@ -16,6 +16,7 @@ export default function QuizzesDetails(props) {
   const [isEdit, setIsEdit] = useState(false);
   const [activeItem, setActiveItem] = useState({});
   const [isOperationLoading, setIsOperationLoading] = useState(false);
+  const [effect, setEffect] = useState(false)
 
 
   const [quizzesSet, setQuizzesSet] = useState({
@@ -40,7 +41,7 @@ export default function QuizzesDetails(props) {
   
   useEffect(() => {
 
-    if (quizzesSetId || quizzesSet.id) {
+  
       setIsOperationLoading(true);
       Transport.HTTP.getQuizzesSetById(
         quizzesSetId? quizzesSetId : quizzesSet.id,
@@ -61,7 +62,7 @@ export default function QuizzesDetails(props) {
           setQuestionLoading(false);
           setIsOperationLoading(false);
         });
-    }
+    
   }, [showModal,quizzesSetId]);
 
 
@@ -76,18 +77,21 @@ export default function QuizzesDetails(props) {
           const questionId = {
             questions: []
           }
-          quizzesSet.questions.splice(index, 1);
-
+const array = [];
           quizzesSet.questions.forEach(q => {
-            questionId.questions.push(q.id)
+            array.push(q.id)
           });
-          console.log(questionId);
+
+     questionId.questions = array.filter(value=>value!==id)
+          console.log(id);
+          console.log(questionId.questions);
           Transport.HTTP.updateQuizzesSet(
             quizzesSet.id,
             questionId,
             sessionStorage.getItem("token")
           )
             .then((res) => {
+              setEffect(!effect);
               toast.success("Question Has Been Deleted Successfully", {
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -185,6 +189,7 @@ export default function QuizzesDetails(props) {
       sessionStorage.getItem("token")
     )
       .then((res) => {
+        console.log("res",res.data);
         toast.info("Quizzes Set Has Been Updated Successfully", {
           hideProgressBar: false,
           closeOnClick: true,
