@@ -191,36 +191,6 @@ export default function sideNavbar(props) {
         </button>
         <button
           onClick={() => {
-            state.activeTab = 10;
-            router.push({ pathname: "/questions" });
-          }}
-          className={`flex items-center h-14 w-full ${globalState.activeTab === 10 ? "bg-blue-100" : "bg-white-100"
-            } pl-10`}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke={`${globalState.activeTab === 10 ? "#8B3A93" : "#323A46"}`}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-            />
-          </svg>
-
-          <p
-            className={`font-light ml-5 text-lg ${globalState.activeTab === 10 ? "text-blue-900" : "text-gray-800"
-              }`}
-          >
-            Questions
-          </p>
-        </button>
-        <button
-          onClick={() => {
             state.activeTab = 7;
             router.push({ pathname: "/quizzes" });
           }}
@@ -253,7 +223,7 @@ export default function sideNavbar(props) {
         </button>
       </div>
 
-      <div className="border border-gray-300" className="grow items-end w-full">
+      <div className="border border-gray-300 grow items-end w-full">
         <button
           onClick={() => {
             state.activeTab = 7;
