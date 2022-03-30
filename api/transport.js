@@ -53,7 +53,7 @@ const Transport = {
     // quizes
     getQuizesSet: (token) =>
       axios({
-        url: 'https://realestateeducation.herokuapp.com/api/quiz',
+        url: 'https://realestateeducation.herokuapp.com/api/quiz?limit=5000',
         method: "GET",
         headers: {
           authorization: "Bearer " + token,
@@ -90,7 +90,7 @@ const Transport = {
 
     getFlashcardSet: (token) =>
       axios({
-        url: "https://realestateeducation.herokuapp.com/api/set?subject=cards",
+        url: "https://realestateeducation.herokuapp.com/api/set?subject=cards&limit=5000",
         method: "GET",
         headers: {
           authorization: "Bearer " + token,
@@ -98,7 +98,7 @@ const Transport = {
       }),
     getVocabularySet: (token) =>
       axios({
-        url: "https://realestateeducation.herokuapp.com/api/set?subject=vocabulary",
+        url: "https://realestateeducation.herokuapp.com/api/set?subject=vocabulary&limit=5000",
         method: "GET",
         headers: {
           authorization: "Bearer " + token,
